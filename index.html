@@ -1,12 +1,144 @@
-<html>
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
 
 <head>
-    <title>תירגול AI</title>
+    <!-- הגדרות מטא לתמיכה בעברית (RTL), התאמה למובייל (Responsive) וקידוד תקין. -->
+    <!-- שימוש ב-Bootstrap 5 לעיצוב רספונסיבי, נגיש ומהיר, ללא צורך בכתיבת CSS רב מאפס. -->
+    <!-- שימוש ב-Bootstrap Icons כספריית אייקונים יחידה (Single icon library) בהתאם לדרישות. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="[Placeholder Description for SEO]">
+    <title>בחירות לכנסת ה-26 | הקול שלך, העתיד שלנו 🇮🇱</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- הוספת ספריית marked.js כדי להמיר Markdown ל-HTML -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body>
-    <h1>תירגול AI</h1>
-    <p>ברוכים הבאים לפרויקט תירגול AI</p>
+    <!-- ה-Header וה-Nav Bar קובצו יחד בראש הדף עם הצמדה (sticky-top) כדי שיהיו זמינים תמיד. -->
+    <!-- הניווט כולל קישורי עוגן לגלילה חלקה לחלקי התוכן. פס התקדמות נמצא בתחתית הניווט (Progress Indicator). -->
+    <header class="sticky-top bg-white shadow-sm" id="main-header">
+        <nav class="navbar navbar-expand-lg navbar-light" aria-label="ניווט ראשי">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="#">הקול שלכם 🇮🇱</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="פתח תפריט ניווט">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#why-vote">למה להצביע?</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#how-to-decide">איך מחליטים?</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#how-to-vote">איך מצביעים?</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- מד ההתקדמות (Progress Bar) מתעדכן על ידי JavaScript ומראה את מיקום המשתמש בדף. -->
+        <div class="progress-container" aria-hidden="true">
+            <div class="progress-bar-indicator" id="progressIndicator"></div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section: תופס את מרבית המסך הראשוני למשיכת תשומת לב, עם צבעוניות וקריאה לפעולה. -->
+        <!-- נבנה באמצעות Flexbox למרכוז התוכן ושימוש במחלקות Bootstrap לרווחים וגודל פונט (display-3). -->
+        <section id="hero" class="hero-section d-flex align-items-center text-center text-white">
+            <div class="container">
+                <div id="hero-content-md"></div>
+                <a href="#why-vote" class="btn btn-primary btn-lg px-5 py-3 rounded-pill hero-btn">גלו למה הקול שלכם
+                    משנה</a>
+            </div>
+        </section>
+
+        <!-- חלק תוכן 1: למה חשוב להצביע (עם טקסט ותמונה). -->
+        <!-- שימוש ב-Grid של Bootstrap לעימוד רספונסיבי: התמונה והטקסט יוצגו זה לצד זה במסכים גדולים, ואחד מעל השני במובייל. -->
+        <section id="why-vote" class="content-section py-5">
+            <div class="container py-5">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <div id="why-vote-content-md"></div>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?q=80&w=2070&auto=format&fit=crop"
+                            alt="צעירים מצביעים בקלפי ומממשים את זכותם הדמוקרטית"
+                            class="img-fluid rounded shadow-sm hover-effect">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- חלק תוכן 2: איך להחליט (עם רכיב וידאו אינטראקטיבי). -->
+        <!-- עיטוף הוידאו ב-ratio 16x9 שומר על פרופורציות הוידאו בכל גדלי המסכים. -->
+        <section id="how-to-decide" class="content-section bg-light py-5">
+            <div class="container py-5">
+                <div class="text-center mb-5">
+                    <div id="how-to-decide-content-md"></div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="ratio ratio-16x9 shadow-sm rounded overflow-hidden hover-effect">
+                            <iframe src="https://www.youtube.com/embed/zH0Ptt1n6rA"
+                                title="סרטון הסבר על תהליך ההצבעה בקלפי" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- חלק תוכן 3: הפרקטיקה של ההצבעה עם אלמנט אינטראקטיבי (Canvas). -->
+        <!-- נגישות: תגית canvas אינה נגישה מטבעה לקוראי מסך ולמשתמשי מקלדת עקב היותה מבוססת פיקסלים (Bitmap). -->
+        <!-- במערכת אמיתית, חובה להוסיף חלופה נגישה כמו טופס טקסטואלי רגיל (input) או ממשק לחצנים כדי לאפשר ביצוע פעולה זהה לכלל המשתמשים. -->
+        <section id="how-to-vote" class="content-section py-5">
+            <div class="container py-5">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+                        <div id="how-to-vote-content-md"></div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="canvas-container bg-light rounded shadow-sm p-4 text-center hover-effect">
+                            <h3 class="h5 mb-3">מתחייבים להצביע? חתמו כאן!</h3>
+                            <canvas id="interactiveCanvas" width="400" height="250"
+                                class="border bg-white w-100 rounded"
+                                aria-label="אזור אינטראקטיבי לציור (אינו נגיש למקלדת)"></canvas>
+                            <button id="clearCanvasBtn" class="btn btn-outline-secondary mt-3">נקה חתימה</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer: תחתית העמוד הכוללת קישורים לרשתות חברתיות ומידע זכויות. -->
+    <!-- שימוש באייקונים עם טקסט מוסתר (visually-hidden) מבטיח שקוראי מסך יבינו את מטרת הקישור. -->
+    <footer class="bg-dark text-white py-4 mt-auto">
+        <div class="container text-center">
+            <div class="mb-3">
+                <a href="#" class="text-white mx-2 hover-effect"><i class="bi bi-facebook fs-4"
+                        aria-hidden="true"></i><span class="visually-hidden">Facebook</span></a>
+                <a href="#" class="text-white mx-2 hover-effect"><i class="bi bi-instagram fs-4"
+                        aria-hidden="true"></i><span class="visually-hidden">Instagram</span></a>
+                <a href="#" class="text-white mx-2 hover-effect"><i class="bi bi-tiktok fs-4"
+                        aria-hidden="true"></i><span class="visually-hidden">TikTok</span></a>
+            </div>
+            <p class="mb-0">© 2026 כל הזכויות שמורות - פרויקט לעידוד הצבעה בקרב צעירים בישראל 🇮🇱</p>
+        </div>
+    </footer>
+
+    <!-- ייבוא סקריפטים: Bootstrap Bundle (כולל Popper) לניהול רכיבים אינטראקטיביים של הספריה. -->
+    <!-- סקריפט מותאם אישית נטען בסוף לשיפור מהירות עליית הדף ולניהול Canvas / Progress Bar. -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
