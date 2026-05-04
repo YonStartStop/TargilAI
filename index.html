@@ -31,13 +31,13 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="#why-vote">למה להצביע?</a>
+                            <a class="nav-link" href="#why-vote"><i class="bi bi-question-circle me-1" aria-hidden="true"></i> למה להצביע?</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#how-to-decide">איך מחליטים?</a>
+                            <a class="nav-link" href="#how-to-decide"><i class="bi bi-lightbulb me-1" aria-hidden="true"></i> איך מחליטים?</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#how-to-vote">איך מצביעים?</a>
+                            <a class="nav-link" href="#how-to-vote"><i class="bi bi-check2-square me-1" aria-hidden="true"></i> איך מצביעים?</a>
                         </li>
                     </ul>
                 </div>
@@ -56,7 +56,7 @@
         <section id="hero" class="hero-section d-flex align-items-center text-center text-white">
             <div class="container">
                 <div id="hero-content-md"></div>
-                <a href="#why-vote" class="btn btn-primary btn-lg px-5 py-3 rounded-pill hero-btn">גלו למה הקול שלכם
+                <a href="#why-vote" class="btn btn-primary btn-lg px-5 py-3 rounded-pill hero-btn"><i class="bi bi-arrow-down-circle me-2" aria-hidden="true"></i> גלו למה הקול שלכם
                     משנה</a>
             </div>
         </section>
@@ -107,11 +107,14 @@
                     </div>
                     <div class="col-lg-6 order-lg-1">
                         <div class="canvas-container bg-light rounded shadow-sm p-4 text-center hover-effect">
-                            <h3 class="h5 mb-3">מתחייבים להצביע? חתמו כאן!</h3>
+                            <h3 class="h5 mb-3"><i class="bi bi-pen me-2" aria-hidden="true"></i> מתחייבים להצביע? חתמו כאן!</h3>
                             <canvas id="interactiveCanvas" width="400" height="250"
                                 class="border bg-white w-100 rounded"
                                 aria-label="אזור אינטראקטיבי לציור (אינו נגיש למקלדת)"></canvas>
-                            <button id="clearCanvasBtn" class="btn btn-outline-secondary mt-3">נקה חתימה</button>
+                            <div class="d-flex justify-content-center gap-2 mt-3">
+                                <button id="saveCanvasBtn" class="btn btn-primary"><i class="bi bi-download me-1" aria-hidden="true"></i> שמור חתימה</button>
+                                <button id="clearCanvasBtn" class="btn btn-outline-secondary"><i class="bi bi-eraser me-1" aria-hidden="true"></i> נקה חתימה</button>
+                            </div>
                         </div>
                     </div>
                 </div>

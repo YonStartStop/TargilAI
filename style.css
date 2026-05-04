@@ -31,12 +31,15 @@ a, button, .btn, .hover-effect, input {
 
 /* מצבי אינטראקציה (Hover/Active) לקישורי הניווט. */
 .nav-link {
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, background-color 0.3s ease, font-weight 0.1s ease;
+    border-radius: 0.5rem;
 }
 
 .nav-link:hover, .nav-link:focus {
     color: #0d6efd !important;
-    text-decoration: underline;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.05);
+    font-weight: bold;
 }
 
 .nav-link:active {
@@ -105,7 +108,7 @@ a, button, .btn, .hover-effect, input {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-#clearCanvasBtn:hover, #clearCanvasBtn:focus {
+#clearCanvasBtn:hover, #clearCanvasBtn:focus-visible {
     background-color: #6c757d;
     color: white;
 }

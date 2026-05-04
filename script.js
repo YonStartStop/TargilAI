@@ -87,6 +87,18 @@ if (canvas) {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
         });
     }
+
+    // אירוע לחיצה על כפתור שמירת החתימה שמוריד את תוכן ה-Canvas כתמונה.
+    const saveBtn = document.getElementById('saveCanvasBtn');
+    if (saveBtn) {
+        saveBtn.addEventListener('click', () => {
+            const dataURL = canvas.toDataURL('image/png');
+            const link = document.createElement('a');
+            link.href = dataURL;
+            link.download = 'my-signature.png';
+            link.click();
+        });
+    }
 }
 
 // פונקציה לטעינת קבצי Markdown והמרתם ל-HTML באמצעות marked.js.
