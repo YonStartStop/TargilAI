@@ -31,13 +31,16 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="#why-vote"><i class="bi bi-question-circle me-1" aria-hidden="true"></i> למה להצביע?</a>
+                            <a class="nav-link" href="#why-vote"><i class="bi bi-question-circle me-1"
+                                    aria-hidden="true"></i> למה להצביע?</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#how-to-decide"><i class="bi bi-lightbulb me-1" aria-hidden="true"></i> איך מחליטים?</a>
+                            <a class="nav-link" href="#how-to-decide"><i class="bi bi-lightbulb me-1"
+                                    aria-hidden="true"></i> איך מחליטים?</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#how-to-vote"><i class="bi bi-check2-square me-1" aria-hidden="true"></i> איך מצביעים?</a>
+                            <a class="nav-link" href="#how-to-vote"><i class="bi bi-check2-square me-1"
+                                    aria-hidden="true"></i> איך מצביעים?</a>
                         </li>
                     </ul>
                 </div>
@@ -53,23 +56,29 @@
     <main>
         <!-- Hero Section: תופס את מרבית המסך הראשוני למשיכת תשומת לב, עם צבעוניות וקריאה לפעולה. -->
         <!-- נבנה באמצעות Flexbox למרכוז התוכן ושימוש במחלקות Bootstrap לרווחים וגודל פונט (display-3). -->
-        <section id="hero" class="hero-section d-flex align-items-center text-center text-white position-relative overflow-hidden">
+        <section id="hero"
+            class="hero-section d-flex align-items-center text-center text-white position-relative overflow-hidden">
             <!-- סרטון רקע לופי: קהל מתהלך, משדר "צאו לרחובות" -->
-            <video id="hero-video" class="hero-video" autoplay loop muted playsinline aria-hidden="true">
-                <source src="https://videos.pexels.com/video-files/3121459/3121459-uhd_2560_1440_24fps.mp4" type="video/mp4">
-            </video>
-            
+            <video id="hero-video" class="hero-video"
+                src="https://videos.pexels.com/video-files/3121459/3121459-uhd_2560_1440_24fps.mp4" autoplay loop muted
+                playsinline aria-hidden="true"></video>
+
             <!-- שכבה מכהה לוודא פוקוס על הטקסט והכפתורים -->
             <div class="hero-overlay"></div>
 
             <!-- כפתור נגישות לעצירת/הפעלת הסרטון לאנשים שאינם מעוניינים בתוכן זז -->
-            <button id="toggle-video-btn" class="btn btn-outline-light btn-sm position-absolute top-0 end-0 m-3 z-3 toggle-video-btn" aria-label="עצור סרטון רקע">
-                <i class="bi bi-pause-circle-fill" aria-hidden="true"></i> <span id="toggle-video-text">עצור תנועה</span>
+            <button id="toggle-video-btn"
+                class="btn btn-outline-light btn-sm position-absolute top-0 end-0 m-3 z-3 toggle-video-btn"
+                aria-label="עצור סרטון רקע">
+                <i class="bi bi-pause-circle-fill" aria-hidden="true"></i> <span id="toggle-video-text">עצור
+                    תנועה</span>
             </button>
 
             <div class="container position-relative z-2">
                 <div id="hero-content-md" class="hero-text-shadow"></div>
-                <a href="#why-vote" class="btn btn-primary btn-lg px-5 py-3 rounded-pill hero-btn shadow hero-text-shadow"><i class="bi bi-arrow-down-circle me-2" aria-hidden="true"></i> גלו למה הקול שלכם
+                <a href="#why-vote"
+                    class="btn btn-primary btn-lg px-5 py-3 rounded-pill hero-btn shadow hero-text-shadow"><i
+                        class="bi bi-arrow-down-circle me-2" aria-hidden="true"></i> גלו למה הקול שלכם
                     משנה</a>
             </div>
         </section>
@@ -120,13 +129,16 @@
                     </div>
                     <div class="col-lg-6 order-lg-1">
                         <div class="canvas-container bg-light rounded shadow-sm p-4 text-center hover-effect">
-                            <h3 class="h5 mb-3"><i class="bi bi-pen me-2" aria-hidden="true"></i> מתחייבים להצביע? חתמו כאן!</h3>
+                            <h3 class="h5 mb-3"><i class="bi bi-pen me-2" aria-hidden="true"></i> מתחייבים להצביע? חתמו
+                                כאן!</h3>
                             <canvas id="interactiveCanvas" width="400" height="250"
                                 class="border bg-white w-100 rounded"
                                 aria-label="אזור אינטראקטיבי לציור (אינו נגיש למקלדת)"></canvas>
                             <div class="d-flex justify-content-center gap-2 mt-3">
-                                <button id="saveCanvasBtn" class="btn btn-primary"><i class="bi bi-download me-1" aria-hidden="true"></i> שמור חתימה</button>
-                                <button id="clearCanvasBtn" class="btn btn-outline-secondary"><i class="bi bi-eraser me-1" aria-hidden="true"></i> נקה חתימה</button>
+                                <button id="saveCanvasBtn" class="btn btn-primary"><i class="bi bi-download me-1"
+                                        aria-hidden="true"></i> שמור חתימה</button>
+                                <button id="clearCanvasBtn" class="btn btn-outline-secondary"><i
+                                        class="bi bi-eraser me-1" aria-hidden="true"></i> נקה חתימה</button>
                             </div>
                         </div>
                     </div>

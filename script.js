@@ -1,6 +1,6 @@
 // קוד להפעלת מד ההתקדמות (Progress Indicator) המופיע מתחת לניווט.
 // מחשב בזמן אמת (בעת גלילה) את אחוז הגלילה בדף ומעדכן את רוחב האלמנט בהתאם.
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const scrolled = (winScroll / height) * 100;
@@ -23,9 +23,9 @@ if (canvas) {
         const rect = canvas.getBoundingClientRect();
         let clientX = evt.clientX;
         let clientY = evt.clientY;
-        
+
         // תמיכה באירועי מגע (Touch)
-        if(evt.touches && evt.touches.length > 0) {
+        if (evt.touches && evt.touches.length > 0) {
             clientX = evt.touches[0].clientX;
             clientY = evt.touches[0].clientY;
         }
@@ -43,7 +43,7 @@ if (canvas) {
 
     // התחלת ציור (לחיצת עכבר/מגע). הפונקציה מונעת גלילת דף בטלפון בזמן הציור (preventDefault).
     function startPosition(e) {
-        e.preventDefault(); 
+        e.preventDefault();
         isDrawing = true;
         draw(e);
     }
@@ -58,7 +58,7 @@ if (canvas) {
     function draw(e) {
         if (!isDrawing) return;
         const pos = getPos(canvas, e);
-        
+
         ctx.lineWidth = 3;
         ctx.lineCap = 'round';
         ctx.strokeStyle = '#0d6efd';
@@ -76,9 +76,9 @@ if (canvas) {
     canvas.addEventListener('mouseout', endPosition);
 
     // מאזיני אירועים למסכי מגע. השימוש ב-passive: false מאפשר לקרוא ל-preventDefault().
-    canvas.addEventListener('touchstart', startPosition, {passive: false});
+    canvas.addEventListener('touchstart', startPosition, { passive: false });
     canvas.addEventListener('touchend', endPosition);
-    canvas.addEventListener('touchmove', draw, {passive: false});
+    canvas.addEventListener('touchmove', draw, { passive: false });
 
     // אירוע לחיצה על כפתור מחיקת ה-Canvas המנקה את כל השטח המצויר בו.
     const clearBtn = document.getElementById('clearCanvasBtn');
@@ -144,5 +144,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 videoBtn.setAttribute('aria-label', 'הפעל סרטון רקע');
             }
         });
+    }
+
+    // ניהול מונטז' סרטוני רקע - החלפה כל 8 שניות
+    const montageVideos = [
+        'https://videos.pexels.com/video-files/3121459/3121459-uhd_2560_1440_24fps.mp4',
+        'https://videos.pexels.com/video-files/853889/853889-hd_1920_1080_25fps.mp4',
+        'https://videos.pexels.com/video-files/3678380/3678380-hd_1920_1080_30fps.mp4'
+    ];
+    let currentVideoIndex = 0;
+
+    if (video) {
+        setInterval(() => {
+            // נחליף סרטון רק אם המשתמש לא עצר את הוידאו
+            if (!video.paused) {
+                currentVideoIndex = (currentVideoIndex + 1) % montageVideos.length;
+                video.src = montageVideos[currentVideoIndex];
+                video.play().catch(e => console.error('Video play error:', e));
+            }
+        }, 8000);
     }
 });
