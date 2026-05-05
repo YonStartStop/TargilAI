@@ -20,8 +20,8 @@
 <body>
     <!-- ה-Header וה-Nav Bar קובצו יחד בראש הדף עם הצמדה (sticky-top) כדי שיהיו זמינים תמיד. -->
     <!-- הניווט כולל קישורי עוגן לגלילה חלקה לחלקי התוכן. פס התקדמות נמצא בתחתית הניווט (Progress Indicator). -->
-    <header class="sticky-top bg-white shadow-sm" id="main-header">
-        <nav class="navbar navbar-expand-lg navbar-light" aria-label="ניווט ראשי">
+    <header class="sticky-top bg-primary shadow" id="main-header">
+        <nav class="navbar navbar-expand-lg navbar-dark" aria-label="ניווט ראשי">
             <div class="container">
                 <a class="navbar-brand fw-bold" href="#">הקול שלכם 🇮🇱</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -53,10 +53,23 @@
     <main>
         <!-- Hero Section: תופס את מרבית המסך הראשוני למשיכת תשומת לב, עם צבעוניות וקריאה לפעולה. -->
         <!-- נבנה באמצעות Flexbox למרכוז התוכן ושימוש במחלקות Bootstrap לרווחים וגודל פונט (display-3). -->
-        <section id="hero" class="hero-section d-flex align-items-center text-center text-white">
-            <div class="container">
-                <div id="hero-content-md"></div>
-                <a href="#why-vote" class="btn btn-primary btn-lg px-5 py-3 rounded-pill hero-btn"><i class="bi bi-arrow-down-circle me-2" aria-hidden="true"></i> גלו למה הקול שלכם
+        <section id="hero" class="hero-section d-flex align-items-center text-center text-white position-relative overflow-hidden">
+            <!-- סרטון רקע לופי: קהל מתהלך, משדר "צאו לרחובות" -->
+            <video id="hero-video" class="hero-video" autoplay loop muted playsinline aria-hidden="true">
+                <source src="https://videos.pexels.com/video-files/3121459/3121459-uhd_2560_1440_24fps.mp4" type="video/mp4">
+            </video>
+            
+            <!-- שכבה מכהה לוודא פוקוס על הטקסט והכפתורים -->
+            <div class="hero-overlay"></div>
+
+            <!-- כפתור נגישות לעצירת/הפעלת הסרטון לאנשים שאינם מעוניינים בתוכן זז -->
+            <button id="toggle-video-btn" class="btn btn-outline-light btn-sm position-absolute top-0 end-0 m-3 z-3 toggle-video-btn" aria-label="עצור סרטון רקע">
+                <i class="bi bi-pause-circle-fill" aria-hidden="true"></i> <span id="toggle-video-text">עצור תנועה</span>
+            </button>
+
+            <div class="container position-relative z-2">
+                <div id="hero-content-md" class="hero-text-shadow"></div>
+                <a href="#why-vote" class="btn btn-primary btn-lg px-5 py-3 rounded-pill hero-btn shadow hero-text-shadow"><i class="bi bi-arrow-down-circle me-2" aria-hidden="true"></i> גלו למה הקול שלכם
                     משנה</a>
             </div>
         </section>
@@ -82,11 +95,11 @@
         <!-- עיטוף הוידאו ב-ratio 16x9 שומר על פרופורציות הוידאו בכל גדלי המסכים. -->
         <section id="how-to-decide" class="content-section bg-light py-5">
             <div class="container py-5">
-                <div class="text-center mb-5">
-                    <div id="how-to-decide-content-md"></div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+                        <div id="how-to-decide-content-md"></div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
                         <div class="ratio ratio-16x9 shadow-sm rounded overflow-hidden hover-effect">
                             <iframe src="https://www.youtube.com/embed/zH0Ptt1n6rA"
                                 title="סרטון הסבר על תהליך ההצבעה בקלפי" allowfullscreen></iframe>

@@ -19,12 +19,12 @@ a, button, .btn, .hover-effect, input {
 .progress-container {
     width: 100%;
     height: 4px;
-    background-color: #f8f9fa;
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .progress-bar-indicator {
     height: 100%;
-    background-color: #0d6efd;
+    background-color: #ffc107; /* צהוב בוהק שבולט על הרקע הכחול */
     width: 0%;
     transition: width 0.1s ease;
 }
@@ -33,25 +33,56 @@ a, button, .btn, .hover-effect, input {
 .nav-link {
     transition: color 0.3s ease, background-color 0.3s ease, font-weight 0.1s ease;
     border-radius: 0.5rem;
+    color: rgba(255, 255, 255, 0.85) !important;
 }
 
 .nav-link:hover, .nav-link:focus {
-    color: #0d6efd !important;
+    color: #ffffff !important;
     text-decoration: none;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(255, 255, 255, 0.15);
     font-weight: bold;
 }
 
 .nav-link:active {
-    color: #0a58ca !important;
+    color: #f8f9fa !important;
 }
 
 /* --- Hero Section --- */
-/* רקע עם מעבר צבעים מודרני המיועד למשוך את תשומת הלב של משתמשים צעירים. */
+/* סקשן ההירו כולל כעת סרטון וידאו ברקע לכן הרקע הצבעוני מוסר / הופך לגיבוי. */
 .hero-section {
     min-height: 80vh;
-    background: linear-gradient(135deg, #0d6efd, #6610f2);
+    background-color: #0d6efd; /* צבע גיבוי למקרה שהסרטון לא נטען */
     padding: 100px 0;
+}
+
+/* סרטון הרקע המכסה את כל אזור ההירו */
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* שכבה מכהה (Overlay) המבטיחה קריאות של הטקסט מעל הסרטון */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2); /* כהות של 20% */
+    z-index: 1;
+}
+
+/* צל טקסט חזק להפרדה ברורה בין הטקסט לרקע ולשכבה המכהה */
+.hero-text-shadow {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 /* מצבי אינטראקציה מוגברים לכפתור ה-Hero: מעבר צבע, צללית ושינוי גודל מינימלי. */
@@ -160,7 +191,8 @@ footer a:active {
     margin-bottom: 0.5rem;
 }
 
-#why-vote-content-md ul, #how-to-decide-content-md ul, #how-to-vote-content-md ul {
+#why-vote-content-md ul, #how-to-decide-content-md ul, #how-to-vote-content-md ul,
+#why-vote-content-md ol, #how-to-decide-content-md ol, #how-to-vote-content-md ol {
     padding-right: 2rem;
     margin-bottom: 1.5rem;
 }

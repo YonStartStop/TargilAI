@@ -123,4 +123,26 @@ document.addEventListener('DOMContentLoaded', () => {
     loadMarkdownContent('why-vote-content-md', 'content/why-vote.md');
     loadMarkdownContent('how-to-decide-content-md', 'content/how-to-decide.md');
     loadMarkdownContent('how-to-vote-content-md', 'content/how-to-vote.md');
+
+    // ניהול כפתור עצירת/הפעלת סרטון רקע לנגישות
+    const videoBtn = document.getElementById('toggle-video-btn');
+    const video = document.getElementById('hero-video');
+    const toggleText = document.getElementById('toggle-video-text');
+    const icon = videoBtn?.querySelector('i');
+
+    if (videoBtn && video && toggleText && icon) {
+        videoBtn.addEventListener('click', () => {
+            if (video.paused) {
+                video.play();
+                toggleText.textContent = 'עצור תנועה';
+                icon.className = 'bi bi-pause-circle-fill';
+                videoBtn.setAttribute('aria-label', 'עצור סרטון רקע');
+            } else {
+                video.pause();
+                toggleText.textContent = 'הפעל תנועה';
+                icon.className = 'bi bi-play-circle-fill';
+                videoBtn.setAttribute('aria-label', 'הפעל סרטון רקע');
+            }
+        });
+    }
 });
