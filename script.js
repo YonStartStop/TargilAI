@@ -1,3 +1,5 @@
+window.isMotionEnabled = true;
+
 // קוד להפעלת מד ההתקדמות (Progress Indicator) המופיע מתחת לניווט.
 // מחשב בזמן אמת (בעת גלילה) את אחוז הגלילה בדף ומעדכן את רוחב האלמנט בהתאם.
 window.addEventListener('scroll', function () {
@@ -7,6 +9,33 @@ window.addEventListener('scroll', function () {
     const progressIndicator = document.getElementById('progressIndicator');
     if (progressIndicator) {
         progressIndicator.style.width = scrolled + '%';
+    }
+
+    // הפעלת אנימציית Parallax לצורות הרקע ולאלמנטים אקטיביים
+    if (window.isMotionEnabled) {
+        const parallaxShapes = document.querySelectorAll('.parallax-shape');
+        parallaxShapes.forEach(shape => {
+            const speed = parseFloat(shape.getAttribute('data-speed'));
+            const yPos = winScroll * speed;
+            shape.style.transform = `translateY(${yPos}px)`;
+        });
+
+        const parallaxElements = document.querySelectorAll('.parallax-element');
+        parallaxElements.forEach(el => {
+            if (!el.dataset.initialY) {
+                // שומרים את המיקום ההתחלתי של האלמנט פעם אחת
+                el.dataset.initialY = el.getBoundingClientRect().top + winScroll; 
+            }
+            const initialY = parseFloat(el.dataset.initialY);
+            const speed = parseFloat(el.getAttribute('data-speed'));
+            
+            // חישוב המרחק של האלמנט ממרכז המסך
+            const distance = (winScroll + window.innerHeight / 2) - initialY;
+            const yPos = distance * speed;
+            
+            // מעדכנים את משתנה ה-CSS בלבד, כך שלא נדרוס את ה-scale של ה-Hover
+            el.style.setProperty('--parallax-y', `${yPos}px`);
+        });
     }
 });
 
@@ -136,12 +165,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 video.play();
                 toggleText.textContent = 'עצור תנועה';
                 icon.className = 'bi bi-pause-circle-fill';
-                videoBtn.setAttribute('aria-label', 'עצור סרטון רקע');
+                videoBtn.setAttribute('aria-label', 'עצור סרטון ואנימציות');
+                window.isMotionEnabled = true;
+                // עדכון מיידי של מיקומי הפרלקס
+                window.dispatchEvent(new Event('scroll'));
             } else {
                 video.pause();
                 toggleText.textContent = 'הפעל תנועה';
                 icon.className = 'bi bi-play-circle-fill';
-                videoBtn.setAttribute('aria-label', 'הפעל סרטון רקע');
+                videoBtn.setAttribute('aria-label', 'הפעל סרטון ואנימציות');
+                window.isMotionEnabled = false;
+                
+                // איפוס האנימציות למצב הסטטי (ללא פרלקס)
+                document.querySelectorAll('.parallax-shape').forEach(shape => {
+                    shape.style.transform = `translateY(0px)`;
+                });
+                document.querySelectorAll('.parallax-element').forEach(el => {
+                    el.style.setProperty('--parallax-y', `0px`);
+                });
             }
         });
     }

@@ -18,6 +18,12 @@
 </head>
 
 <body>
+    <!-- אנימציות פרלקס (Parallax) ברקע האתר -->
+    <div class="parallax-bg" aria-hidden="true">
+        <div class="parallax-shape shape-1" data-speed="0.2"></div>
+        <div class="parallax-shape shape-2" data-speed="-0.3"></div>
+        <div class="parallax-shape shape-3" data-speed="0.15"></div>
+    </div>
     <!-- ה-Header וה-Nav Bar קובצו יחד בראש הדף עם הצמדה (sticky-top) כדי שיהיו זמינים תמיד. -->
     <!-- הניווט כולל קישורי עוגן לגלילה חלקה לחלקי התוכן. פס התקדמות נמצא בתחתית הניווט (Progress Indicator). -->
     <header class="sticky-top bg-primary shadow" id="main-header">
@@ -75,7 +81,7 @@
             </button>
 
             <div class="container position-relative z-2">
-                <div id="hero-content-md" class="hero-text-shadow"></div>
+                <div id="hero-content-md" class="hero-text-shadow parallax-element" data-speed="-0.2"></div>
                 <a href="#why-vote"
                     class="btn btn-primary btn-lg px-5 py-3 rounded-pill hero-btn shadow hero-text-shadow"><i
                         class="bi bi-arrow-down-circle me-2" aria-hidden="true"></i> גלו למה הקול שלכם
@@ -94,7 +100,7 @@
                     <div class="col-lg-6 text-center">
                         <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?q=80&w=2070&auto=format&fit=crop"
                             alt="צעירים מצביעים בקלפי ומממשים את זכותם הדמוקרטית"
-                            class="img-fluid rounded shadow-sm hover-effect">
+                            class="img-fluid rounded shadow-sm hover-effect parallax-element" data-speed="0.08">
                     </div>
                 </div>
             </div>
@@ -109,7 +115,7 @@
                         <div id="how-to-decide-content-md"></div>
                     </div>
                     <div class="col-lg-6 order-lg-1">
-                        <div class="ratio ratio-16x9 shadow-sm rounded overflow-hidden hover-effect">
+                        <div class="ratio ratio-16x9 shadow-sm rounded overflow-hidden hover-effect parallax-element" data-speed="-0.06">
                             <iframe src="https://www.youtube.com/embed/2VhmnsdY4Bc"
                                 title="סרטון הסבר על תהליך ההצבעה בקלפי" allowfullscreen></iframe>
                         </div>
@@ -128,7 +134,7 @@
                         <div id="how-to-vote-content-md"></div>
                     </div>
                     <div class="col-lg-6 order-lg-1">
-                        <div class="canvas-container bg-light rounded shadow-sm p-4 text-center hover-effect">
+                        <div class="canvas-container bg-light rounded shadow-sm p-4 text-center hover-effect parallax-element" data-speed="0.1">
                             <h3 class="h5 mb-3"><i class="bi bi-pen me-2" aria-hidden="true"></i> מתחייבים להצביע? חתמו
                                 כאן!</h3>
                             <canvas id="interactiveCanvas" width="400" height="250"
